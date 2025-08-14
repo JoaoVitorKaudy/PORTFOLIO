@@ -1,0 +1,117 @@
+ @import url('https://fonts.cdnfonts.com/css/trajan-pro');              
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Trajan Pro', sans-serif;                                                
+}
+
+body{
+    background-color: black;
+}
+
+:root{
+    --cor1: #0A1126;
+    --cor2: #2E468C;
+    --cor3: #2561D9;
+    --cor4: #637AA6;
+    --cor5: #F2BFAC;
+}
+
+header {
+    background-image: url('programming GIF.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 2rem 4rem;
+    color: white;
+}
+
+/* Header top: menu | contatos */
+#cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+/* Menu */
+#menu a {
+    text-decoration: none;
+    color: white;
+    margin: 0 1rem;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+#menu a:hover {
+    font-size: 1.1rem;
+}
+
+/* Contatos */
+#contatos a img {
+    width: 2.5rem;
+    margin-left: 1rem;
+    filter: invert(100%) sepia(100%) saturate(500%) hue-rotate(200deg);
+    transition: transform 0.3s;
+}
+
+#contatos a img:hover {
+    transform: scale(1.2);
+}
+
+/* Logo principal centralizada */
+#logo-principal {
+    text-align: center;
+}
+
+#logo-principal img {
+    width: 50rem;
+    display: inline-block;
+    margin: 0 auto;
+    padding: 5rem 0;
+}
+
+
+#parte1 {
+    border: 1px solid white;
+    padding: 3rem;
+}
+
+h1{
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+}
+
+#parte2 {
+    border: 1px solid white;
+    padding: 2rem;
+    color: white;
+    background-color: rgb(15, 15, 15);
+}
+
+#parte3 {
+    border: 1px solid white;
+    padding: 2rem;
+    color: white;
+}
+
+#parte4 {
+    border: 1px solid white;
+    padding: 2rem;
+    color: white;
+    background-color: rgb(15, 15, 15);
+}
+
+        #parte4 .btn {
+            background: #d4af37; /* dourado */
+            color: #111;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 600;
+        }
+        #parte4 .btn:hover {background: #c49b2f;}
