@@ -3,7 +3,8 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Trajan Pro', sans-serif;                                                
+    font-family: 'Trajan Pro', sans-serif; 
+    /*border: 1px solid red;*/                                             
 }
 
 body{
@@ -11,15 +12,36 @@ body{
 }
 
 :root{
-    --cor1: #0A1126;
-    --cor2: #2E468C;
-    --cor3: #2561D9;
-    --cor4: #637AA6;
-    --cor5: #F2BFAC;
+    --fundo1: rgb(15, 15, 15);
 }
 
+h1, h2 {
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    padding: 2rem;
+}
+
+p{
+    color: whitesmoke;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Rolagem suave para toda a página */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Ajuste para o header fixo (se necessário) */
+section {
+    scroll-margin-top: 100px; /* Ajuste conforme a altura do seu header */
+}
+
+/*===========================================================*/
+
 header {
-    background-image: url('programming GIF.gif');
+    background-image: url('code\ GIF.gif');
     background-repeat: no-repeat;
     background-size: cover;
     padding: 2rem 4rem;
@@ -41,6 +63,7 @@ header {
     margin: 0 1rem;
     font-weight: 500;
     transition: 0.3s;
+    text-transform: uppercase;
 }
 
 #menu a:hover {
@@ -48,14 +71,17 @@ header {
 }
 
 /* Contatos */
-#contatos a img {
+#links_rapidos a img {
     width: 2.5rem;
     margin-left: 1rem;
-    filter: invert(100%) sepia(100%) saturate(500%) hue-rotate(200deg);
     transition: transform 0.3s;
 }
 
-#contatos a img:hover {
+.img_cor_contatos {
+    filter: invert(100%) sepia(50%) saturate(500%) hue-rotate(200deg);
+}
+
+#links_rapidos a img:hover {
     transform: scale(1.2);
 }
 
@@ -64,54 +90,479 @@ header {
     text-align: center;
 }
 
+/* Animação da Logo */
 #logo-principal img {
     width: 50rem;
     display: inline-block;
     margin: 0 auto;
-    padding: 5rem 0;
+    padding: 6rem 0;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: logoAnimation 2s ease-out 0.5s forwards;
 }
 
+@keyframes logoAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 
-#parte1 {
-    border: 1px solid white;
+/*===========================================================*/
+
+#sobre {
     padding: 3rem;
+    margin: 0 auto;
 }
 
-h1{
+.estatisticas {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+}
+
+.estatistica-card {
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1rem;
+    text-align: center;
+    min-width: 150px;
+    transition: transform 0.3s ease;
+    background-color: var(--fundo1);
+}
+
+.estatistica-card h2 {
+    font-size: 5rem;
+    text-shadow: 1px 1px 10px white;
+}
+
+.estatistica-card:hover {
+    transform: scale(1.05);
+}
+
+.descricao {
+    margin: 2rem 0;
+    line-height: 1.6;
+}
+
+.hobbies-container {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.hobby-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.hobby-card.reverse {
+    flex-direction: row-reverse;
+}
+
+.hobby-img {
+    flex: 1;
+    min-height: 200px;
+}
+
+.hobby-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hobby-text {
+    flex: 1;
+    padding: 2rem;
     color: white;
-    font-size: 3rem;
+}
+
+.hobby-text h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
     text-align: center;
 }
 
-#parte2 {
-    border: 1px solid white;
-    padding: 2rem;
-    color: white;
-    background-color: rgb(15, 15, 15);
+.hobby-text p {
+    line-height: 1.6;
+    color: #ddd;
 }
 
-#parte3 {
-    border: 1px solid white;
-    padding: 2rem;
+/* Efeito hover opcional */
+.hobby-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.151);
+    transition: all 0.3s ease;
+}
+
+h1, h2, h3 {
+    margin: 1rem 0;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+/*===========================================================*/
+
+/* Seção Projetos */
+#projetos {
+    padding: 5rem 2rem;
+    background-color: #121212;
+    color: white;
+    text-align: center;
+}
+
+#projetos h2 {
+    font-size: 3rem;
+}
+
+#projetos .subtitulo {
+    color: #aaa;
+    margin-bottom: 3rem;
+    font-size: 1.2rem;
+}
+
+.projetos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.projeto-card {
+    background: #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projeto-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.projeto-img {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.projeto-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.projeto-card:hover .projeto-img img {
+    transform: scale(1.05);
+}
+
+.projeto-tecnologias {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+}
+
+.projeto-tecnologias span {
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.projeto-info {
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.projeto-info h3 {
+    margin-top: 0;
+    color: #fff;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.projeto-info p {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.projeto-botoes {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn-demo, .btn-codigo {
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-demo {
+    background: #0037ea;
     color: white;
 }
 
-#parte4 {
-    border: 1px solid white;
-    padding: 2rem;
-    color: white;
-    background-color: rgb(15, 15, 15);
+.btn-demo:hover {
+    background: #4d68ff;
 }
 
-        #parte4 .btn {
-            background: #d4af37; /* dourado */
-            color: #111;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: 0.3s;
-            font-weight: 600;
-        }
-        #parte4 .btn:hover {background: #c49b2f;}
+.btn-codigo {
+    background: transparent;
+    color: #1000ea;
+    border: 1px solid #1000ea;
+}
+
+.btn-codigo:hover {
+    background: rgba(98, 0, 234, 0.1);
+}
+
+.ver-mais {
+    margin-top: 3rem;
+}
+
+.btn-ver-mais {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: transparent;
+    color: #1000ea;
+    border: 2px solid #1700ea;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-ver-mais:hover {
+    background: #2300ea;
+    color: white;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .projetos-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .projeto-botoes {
+        flex-direction: column;
+    }
+}
+
+/*===========================================================*/
+
+/* Estilos para o Vídeo */
+.video-container {
+    padding: 4rem 1rem;
+    text-align: center;
+    background-color: #000;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Proporção 16:9 */
+    height: 0;
+    overflow: hidden;
+    margin: 2rem auto;
+    max-width: 1000px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-description {
+    color: #aaa;
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .video-container {
+        padding: 2rem 1rem;
+    }
+    
+    .video-wrapper {
+        margin: 1rem auto;
+    }
+}
+
+/*===========================================================*/
+
+/* Seção Contatos */
+#contatos {
+    padding: 4rem 2rem;
+    background: #121212;
+    color: white;
+    text-align: center;
+}
+
+#contatos .subtitulo {
+    color: #aaa;
+    margin-bottom: 3rem;
+    font-size: 1.2rem;
+}
+
+.contatos-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contatos-container span{
+    text-transform: uppercase;
+}
+
+.contato-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 3rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contato-btn i {
+    font-size: 1.5rem;
+}
+
+/* Botão GitHub */
+.github-btn {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.github-btn:hover {
+    background: rgb(255, 255, 255);
+    color: black;
+    transform: translateY(-3px);
+}
+
+/* Botão LinkedIn */
+.linkedin-btn {
+    background: #0a66c2;
+    color: white;
+    border: 2px solid #0a66c2;
+}
+
+.linkedin-btn:hover {
+    background: #004182;
+    transform: translateY(-3px);
+    border: 2px solid #004182;
+}
+
+/* Botão Instagram */
+.instagram-btn {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    color: white;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.instagram-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(220, 39, 67, 0.4);
+}
+
+/* Botão Email */
+.email-btn {
+    background: #ea4335;
+    color: white;
+    border: 2px solid #ea4335;
+}
+
+.email-btn:hover {
+    background: #c5221f;
+    transform: translateY(-3px);
+    border: 2px solid #c5221f;
+}
+
+/* Botão WhatsApp */
+.whatsapp-btn {
+    background: #25d366;
+    color: white;
+    border: 2px solid #25d366;
+}
+
+.whatsapp-btn:hover {
+    background: #128c7e;
+    transform: translateY(-3px);
+    border: 2px solid #128c7e;
+}
+
+.copyright {
+    margin-top: 4rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Ícones do Font Awesome */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .contato-btn {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+}
